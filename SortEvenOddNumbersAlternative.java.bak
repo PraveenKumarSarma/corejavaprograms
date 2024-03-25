@@ -1,0 +1,37 @@
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class SortEvenOddNumbersAlternative {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter 10 numbers: ");
+        int[] numbers = new int[10];
+        for (int i = 0; i < 10; i++) {
+            numbers[i] = scanner.nextInt();
+        }
+
+        // Sort even numbers in ascending order and odd numbers in descending order
+        Arrays.sort(numbers); // Initial ascending sort
+
+        int left = 0, right = numbers.length - 1;
+        while (left < right) {
+            while (left < right && numbers[left] % 2 == 0) {
+                left++;
+            }
+            while (left < right && numbers[right] % 2 == 1) {
+                right--;
+            }
+            if (left < right) {
+                int temp = numbers[left];
+                numbers[left] = numbers[right];
+                numbers[right] = temp;
+            }
+        }
+
+        System.out.println("Sorted numbers:");
+        for (int num : numbers) {
+            System.out.print(num + " ");
+        }
+    }
+}

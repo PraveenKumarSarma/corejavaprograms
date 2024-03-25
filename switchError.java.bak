@@ -1,0 +1,9 @@
+class  SwitchError
+{
+	public static void main(String[] args) 
+	{
+		int number = 20000;
+		char text = (char)number;
+		System.out.println(text);
+	}
+}
